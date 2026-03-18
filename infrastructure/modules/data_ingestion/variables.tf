@@ -31,7 +31,7 @@ variable "secret_arn" {
 variable "schedule_expression" {
   description = "EventBridge cron schedule (UTC)"
   type        = string
-  default     = "cron(10 20 * * ? *)" # 9pm UTC = 4pm ET market close + buffer
+  default     = "cron(10 20 * * ? *)" # 4:10 PM ET = 8:10 PM UTC, 10 minute buffer at market close to ensure data is available
 }
 
 variable "watchlist" {

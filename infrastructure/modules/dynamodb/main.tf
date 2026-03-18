@@ -8,6 +8,11 @@ resource "aws_dynamodb_table" "stock_movers" {
     type = "S"
   }
 
+  ttl {
+    attribute_name = "ttl"
+    enabled        = true
+  }
+
   tags = {
     Name        = "stock_movers"
     Environment = var.environment

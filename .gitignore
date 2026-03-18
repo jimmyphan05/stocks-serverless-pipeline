@@ -40,3 +40,6 @@ terraform.tfvars
 
 # Lambda build artifacts
 *.zip
+
+# One-time scripts
+backfill.py

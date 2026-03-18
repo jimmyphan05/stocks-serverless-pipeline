@@ -53,9 +53,9 @@ resource "aws_lambda_function" "ingestion" {
   role             = aws_iam_role.ingestion_lambda_role.arn
   filename         = var.lambda_source_path
   source_code_hash = filebase64sha256(var.lambda_source_path)
-  handler          = "ingestion_handler.lambda_handler"
+  handler          = "ingestion.ingestion_lambda_handler"
   runtime          = "python3.12"
-  timeout          = 30
+  timeout          = 120
 
   environment {
     variables = {
