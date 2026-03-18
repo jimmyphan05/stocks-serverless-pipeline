@@ -35,3 +35,8 @@ __pycache__/
 .terraform/
 *.tfstate
 *.tfstate.*
+terraform.tfvars
+*.tfvars
+
+# Lambda build artifacts
+*.zip
