@@ -22,3 +22,13 @@ output "movers_url" {
   description = "Full URL for GET /movers"
   value       = module.api_layer.movers_url
 }
+
+output "frontend_url" {
+  description = "S3 static website URL"
+  value       = module.s3_frontend.website_url
+}
+
+output "frontend_bucket_name" {
+  description = "S3 bucket name for deploying frontend files"
+  value       = module.s3_frontend.bucket_name
+}

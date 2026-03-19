@@ -84,6 +84,11 @@ resource "aws_apigatewayv2_stage" "default" {
   api_id      = aws_apigatewayv2_api.stock_api.id
   name        = "$default"
   auto_deploy = true
+
+  default_route_settings {
+    throttling_rate_limit  = 10
+    throttling_burst_limit = 20
+  }
 }
 
 # Let API gateway invoke the retrieval Lambda

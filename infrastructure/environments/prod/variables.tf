@@ -15,3 +15,8 @@ variable "massive_api_key" {
   type        = string
   sensitive   = true
 }
+
+variable "frontend_bucket_name" {
+  description = "Globally unique S3 bucket name for the frontend"
+  type        = string
+}

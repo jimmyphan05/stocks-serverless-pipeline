@@ -33,3 +33,10 @@ module "api_layer" {
   dynamodb_table_name = module.dynamodb.table_name
   dynamodb_table_arn  = module.dynamodb.table_arn
 }
+
+module "s3_frontend" {
+  source = "../../modules/s3_frontend"
+
+  environment = var.environment
+  bucket_name = var.frontend_bucket_name
+}
