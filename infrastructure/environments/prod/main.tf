@@ -23,3 +23,13 @@ module "data_ingestion" {
   dynamodb_table_arn  = module.dynamodb.table_arn
   secret_arn          = module.secrets_manager.secret_arn
 }
+
+module "api_layer" {
+  source = "../../modules/api_layer"
+
+  environment         = var.environment
+  function_name       = "stock-retrieval-${var.environment}"
+  lambda_source_path  = "${path.module}/../../../backend/retrieval_lambda/lambda.zip"
+  dynamodb_table_name = module.dynamodb.table_name
+  dynamodb_table_arn  = module.dynamodb.table_arn
+}

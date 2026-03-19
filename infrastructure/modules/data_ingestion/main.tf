@@ -17,7 +17,7 @@ resource "aws_iam_role_policy_attachment" "basic_execution" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-# Allow read and write acces to dynamoDB
+# Least privilege: allow write access to dynamoDB
 resource "aws_iam_role_policy" "dynamodb_write" {
   name = "${var.function_name}-dynamodb-write"
   role = aws_iam_role.ingestion_lambda_role.id
@@ -47,7 +47,7 @@ resource "aws_iam_role_policy" "secrets_read" {
   })
 }
 
-### API ingestion lambda
+### Stock API data ingestion lambda
 resource "aws_lambda_function" "ingestion" {
   function_name    = var.function_name
   role             = aws_iam_role.ingestion_lambda_role.arn
