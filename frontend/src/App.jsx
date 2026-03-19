@@ -29,7 +29,7 @@ export default function App() {
       <div className="w-100 py-3 mb-4" style={{ backgroundColor: '#3a7bd5', backgroundImage: 'var(--bs-gradient)' }}>
         <h1 className="text-center fw-bold m-0" style={{ color: '#ffffff' }}>Top Daily Stock Movers!</h1>
       </div>
-      <div className="container" style={{ maxWidth: '720px' }}>
+      <div className="container-fluid px-4">
 
         {loading && (
           <div className="text-center py-5">
