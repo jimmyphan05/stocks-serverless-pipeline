@@ -41,6 +41,9 @@ export default function MoverCard({ mover }) {
             Percentage Change: {sign}{pct.toFixed(2)}%
           </div>
           <div style={{ color: textColor, opacity: 0.85 }} className="small">
+            Open: ${parseFloat(mover.open_price).toFixed(2)}
+          </div>
+          <div style={{ color: textColor, opacity: 0.85 }} className="small">
             Close: ${parseFloat(mover.close_price).toFixed(2)}
           </div>
         </div>

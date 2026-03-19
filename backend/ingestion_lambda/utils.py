@@ -17,9 +17,10 @@ def get_api_key(secret_arn: str) -> str:
 
 
 def find_best_mover(watchlist: list, trade_date: str, api_key: str) -> tuple:
-    #Return (ticker, percent_change, close_price) for the biggest mover, or (None, None, None)
+    #Return (ticker, percent_change, open_price, close_price) for the biggest mover, or (None, None, None, None)
     best_ticker = None
     best_pct_change = None
+    best_open = None
     best_close = None
 
     for ticker in watchlist:
@@ -40,9 +41,10 @@ def find_best_mover(watchlist: list, trade_date: str, api_key: str) -> tuple:
         if best_pct_change is None or (abs(percent_change) > abs(best_pct_change)):
             best_ticker = ticker
             best_pct_change = percent_change
+            best_open = open_price
             best_close = close_price
 
-    return best_ticker, best_pct_change, best_close
+    return best_ticker, best_pct_change, best_open, best_close
 
 
 def fetch_daily_open_close(ticker: str, trade_date: str, api_key: str, retries: int = 2) -> Optional[dict]:
