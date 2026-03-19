@@ -24,11 +24,16 @@ output "movers_url" {
 }
 
 output "frontend_url" {
-  description = "S3 static website URL"
-  value       = module.s3_frontend.website_url
+  description = "CloudFront HTTPS URL for the frontend"
+  value       = module.cloudfront.cloudfront_url
 }
 
 output "frontend_bucket_name" {
   description = "S3 bucket name for deploying frontend files"
   value       = module.s3_frontend.bucket_name
+}
+
+output "cloudfront_distribution_id" {
+  description = "CloudFront distribution ID (used for cache invalidations)"
+  value       = module.cloudfront.distribution_id
 }

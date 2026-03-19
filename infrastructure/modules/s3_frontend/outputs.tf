@@ -12,3 +12,8 @@ output "bucket_arn" {
   description = "S3 bucket ARN"
   value       = aws_s3_bucket.frontend.arn
 }
+
+output "bucket_regional_domain_name" {
+  description = "Regional domain name for use as CloudFront S3 origin"
+  value       = aws_s3_bucket.frontend.bucket_regional_domain_name
+}

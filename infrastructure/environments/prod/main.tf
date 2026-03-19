@@ -40,3 +40,12 @@ module "s3_frontend" {
   environment = var.environment
   bucket_name = var.frontend_bucket_name
 }
+
+module "cloudfront" {
+  source = "../../modules/cloudfront"
+
+  environment                 = var.environment
+  bucket_id                   = module.s3_frontend.bucket_name
+  bucket_arn                  = module.s3_frontend.bucket_arn
+  bucket_regional_domain_name = module.s3_frontend.bucket_regional_domain_name
+}
